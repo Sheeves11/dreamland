@@ -70,14 +70,14 @@ def login_screen():
     stored_hash = base64.b64decode(user_data['password_hash'].encode('utf-8'))
 
     if bcrypt.checkpw(password.encode(), stored_hash):
-        print("\nLogin successful!")
+        print("\nlogin successful!")
         current_user = username
         logged_in_users.add(username)
-        input("Press Enter to continue...")
+        input("press enter to continue...")
         screen = "main_menu"
     else:
-        print("\nInvalid username or password.")
-        input("Press Enter to continue...")
+        print("\ninvalid username or password.")
+        input("press enter to continue...")
         screen = "login"
 
 def register_screen():
@@ -163,19 +163,19 @@ def bio_screen():
         json.dump(user_data, f)
 
     print("\nBio updated!")
-    input("Press Enter to continue...")
+    input("press enter to continue...")
     screen = "main_menu"
 
 def view_bios_screen():
     global screen
     clear_screen()
     header()
-    print("Bios of Other Logged-in Users\n")
+    print("discover\n")
 
     other_users = logged_in_users - {current_user}
 
     if not other_users:
-        print("No other users are currently logged in.")
+        print("no other users are currently logged in.")
     else:
         for user in other_users:
             user_file = os.path.join('users', f'{user}.txt')
@@ -183,22 +183,22 @@ def view_bios_screen():
             if os.path.exists(user_file):
                 with open(user_file, 'r') as f:
                     user_data = json.load(f)
-                bio = user_data.get('bio', 'No bio available.')
+                bio = user_data.get('bio', 'no bio available.')
                 print(f"Username: {user}")
-                print(f"Bio: {bio}\n")
+                print(f"bio: {bio}\n")
             else:
-                print(f"Username: {user}")
-                print("Bio: No bio available.\n")
+                print(f"username: {user}")
+                print("bio: no bio available.\n")
 
-    input("Press Enter to continue...")
+    input("press enter to continue...")
     screen = "main_menu"
 
 def logout_screen():
     global screen, current_user
     logged_in_users.remove(current_user)
     current_user = None
-    print("\nYou have been logged out.")
-    input("Press Enter to continue...")
+    print("\nyou have been logged out.")
+    input("press enter to continue...")
     screen = "login"
 
 #------------------------------------------------------------------------------
