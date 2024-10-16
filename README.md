@@ -12,6 +12,10 @@ the current production server is right here: 155.138.245.78
 
 #installation info:
 
-install goTTY
+1. install brew
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+3. install goTTY
+   brew install sorenisanerd/gotty/gotty
+5. install screen
 
 
