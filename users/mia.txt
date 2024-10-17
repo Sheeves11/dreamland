@@ -1,0 +1,9 @@
+{
+    "password_hash": "JDJiJDEyJE13NEJPMjUza0dJNk5wZDhBTHRTemVzcUpuLkRvS2FGTzI2cUlScFgzSkF5d0ZETHRUdUdh",
+    "display_name": "mia",
+    "bio": "",
+    "pronouns": "",
+    "age": "",
+    "follows": [],
+    "notifications": []
+}
