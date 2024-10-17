@@ -1,4 +1,4 @@
-# dreamland.io
+# dream-land.online
 
 dreamland is a terminal-based minimal social media platform
 
@@ -6,7 +6,7 @@ have you ever wanted social media, but better? dreamland is ad-free, ai-free, co
 
 more details soon to come!
 
-the current production server is right here: 155.138.245.78
+the current production server is right here: dream-land.online
 
 -------------------------------------------------------------------------
 
