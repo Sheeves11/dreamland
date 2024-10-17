@@ -13,9 +13,16 @@ the current production server is right here: 155.138.245.78
 #installation info:
 
 1. install brew
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-3. install goTTY
-   brew install sorenisanerd/gotty/gotty
-5. install screen
+
+   # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2. install goTTY
+
+  # brew install sorenisanerd/gotty/gotty
+
+3. run it!!
+
+   # sudo screen -d -m /home/linuxbrew/.linuxbrew/bin/gotty -w -p 80 python3 dreamland.py
+
 
 
