@@ -37,23 +37,33 @@ def welcome_screen():
     displays the welcome screen where users can log in, register, or exit.
     """
     clear_screen()
-    show_header()
+    print("""
 
-    options = [
-        "1. log in",
-        "2. register",
-    ]
-    print(format_menu_options(options))
-    show_footer()
-    print('\n')
+   °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.
+  °                               °
+  ° weclome to dreamland, darling °
+  °                               °
+   °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.
+
+  this is perhaps what social media
+      always should have been
+
+⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆
+
+  options:
+
+  1. login
+  2. register
+
+        """)
     choice = input("  select: ").strip().lower()
     if choice == '1':
         current_screen[0] = "login"
     elif choice == '2':
         current_screen[0] = "register"
     else:
-        print(format_text("\ninvalid choice."))
-        input(format_text("press enter to continue..."))
+        print(("\ninvalid choice."))
+        input(("press enter to continue..."))
         current_screen[0] = "welcome"
 
 def login_screen():
@@ -63,14 +73,14 @@ def login_screen():
     """
     clear_screen()
     show_header()
-    username = input(format_text("enter your username: ")).strip()
-    password = getpass(format_text("enter your password: ")).strip()
+    username = input(("enter your username: ")).strip()
+    password = getpass(("enter your password: ")).strip()
 
     user_file = os.path.join('users', f'{username}.json')
 
     if not os.path.exists(user_file):
-        print(format_text("\ninvalid username or password."))
-        input(format_text("press enter to continue..."))
+        print(("\ninvalid username or password."))
+        input(("press enter to continue..."))
         current_screen[0] = "welcome"
         return
 
@@ -81,13 +91,13 @@ def login_screen():
         user_data['password_hash'].encode('utf-8'))
 
     if bcrypt.checkpw(password.encode(), stored_hash):
-        print(format_text("\nlogin successful!"))
+        print(("\nlogin successful!"))
         current_user[0] = username
-        input(format_text("press enter to continue..."))
+        input(("press enter to continue..."))
         current_screen[0] = "main_menu"
     else:
-        print(format_text("\ninvalid username or password."))
-        input(format_text("press enter to continue..."))
+        print(("\ninvalid username or password."))
+        input(("press enter to continue..."))
         current_screen[0] = "welcome"
 
 def register_screen():
@@ -96,24 +106,34 @@ def register_screen():
     saves the new user data to a file.
     """
     clear_screen()
-    show_header()
-    print(format_text("register a new account\n"))
-    username = input(format_text("choose a username: ")).strip()
-    display_name = input(format_text("enter your display name: ")).strip()
-    password = getpass(format_text("choose a password: ")).strip()
-    confirm_password = getpass(format_text("confirm your password: ")).strip()
+    print("""
+
+   °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.
+  °                               °
+  °    let's get you registered!  °
+  °                               °
+   °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･°❀⋆.
+
+   note: don't reuse old passwords!!
+
+⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆
+
+        """)
+    username = input(("choose a username: ")).strip()
+    password = getpass(("choose a password: ")).strip()
+    confirm_password = getpass(("confirm your password:  ")).strip()
 
     if password != confirm_password:
-        print(format_text("passwords do not match."))
-        input(format_text("press enter to continue..."))
+        print(("passwords do not match."))
+        input(f("press enter to continue..."))
         current_screen[0] = "welcome"
         return
 
     user_file = os.path.join('users', f'{username}.json')
 
     if os.path.exists(user_file):
-        print(format_text("username already exists!"))
-        input(format_text("press enter to continue..."))
+        print(("username already exists!"))
+        input(("press enter to continue..."))
         current_screen[0] = "welcome"
         return
 
@@ -137,8 +157,8 @@ def register_screen():
     # save user data to file
     save_user_data(username, user_data)
 
-    print(format_text("\nregistration successful! welcome to dreamland :3"))
-    input(format_text("press enter to continue..."))
+    print(("\nregistration successful! welcome to dreamland :3"))
+    input(("press enter to continue..."))
     current_screen[0] = "welcome"
 
 def main_menu_screen():
@@ -155,7 +175,7 @@ def main_menu_screen():
     if notifications:
         notification_text = color_text(f"you have {len(notifications)} new notifications!", '33')  # yellow text
     menu_text = f"{notification_text}\n"
-    print(format_text(menu_text))
+    print((menu_text))
     options = [
         "1. view feed",         "2. create a post",
         "3. my profile",        "4. messages",
@@ -165,7 +185,7 @@ def main_menu_screen():
     ]
     print(format_menu_options(options))
     show_footer()
-    choice = input(format_text("enter your choice: ")).strip()
+    choice = input(("enter your choice: ")).strip()
     if choice == '1':
         current_screen[0] = "feed"
     elif choice == '2':
@@ -185,8 +205,8 @@ def main_menu_screen():
     elif choice == '9':
         current_screen[0] = "logout"
     else:
-        print(format_text("\ninvalid choice."))
-        input(format_text("press enter to continue..."))
+        print(("\ninvalid choice."))
+        input(("press enter to continue..."))
         current_screen[0] = "main_menu"
 
 def logout_screen():
@@ -194,8 +214,8 @@ def logout_screen():
     logs the user out and returns to the welcome screen.
     """
     current_user[0] = None
-    print(format_text("\nyou have been logged out."))
-    input(format_text("press enter to continue..."))
+    print(("\nyou have been logged out."))
+    input(("press enter to continue..."))
     current_screen[0] = "welcome"
 
 #------------------------------------------------------------------------------

@@ -79,7 +79,7 @@ def show_footer():
     """
     print("\n" + "~" * 35)
 
-def format_text(text, indent=5):
+def format_text(text, indent=1):
     """
     formats text to ensure it wraps properly and is indented.
     this makes the output look neat within the terminal width.

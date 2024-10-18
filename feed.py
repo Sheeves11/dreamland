@@ -167,18 +167,27 @@ def my_posts_screen():
 
     while True:
         clear_screen()
-        show_header(current_user[0])
-        print(format_text(profile_info))
-        print(format_text(f"my posts (post {page + 1} of {total_posts})\n"))
+        print("""
+⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆
+        """)
+        print('   ' + display_name + ' -- ' + pronouns + ' -- age: ' + age)
+        print("""""")
+        print(format_text('  bio: ' +bio))
+        print("""
+⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆
+              """)
 
         post = user_posts[page]
         hearts_display = display_hearts(post.get('likes', []))
         timestamp = format_timestamp(post['timestamp'])
+        print("""""")
         post_content = wrap_text(post['content'], indent=4)
         post_details = f"{timestamp}\n{post_content}\nlikes: {hearts_display}\n"
-        print(format_text("-" * 50))
         print(format_text(post_details))
-        print(format_text("-" * 50 + "\n"))
+        print(format_text(f"({page + 1} of {total_posts})\n"))
+        print("""
+⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆⋆˖⁺‧₊☽◯☾₊‧⁺˖⋆
+              """)
 
         options = [
             "1. edit post",         "2. delete post",
